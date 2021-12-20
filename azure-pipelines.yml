@@ -19,6 +19,7 @@ stages:
   jobs:
   - deployment: Publish_Artifacts
     displayName: Publish Artifacts
+    environment: ddddd
     strategy:
       runOnce:
         deploy:
