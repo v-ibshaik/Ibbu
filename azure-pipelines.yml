@@ -24,7 +24,6 @@ stages:
       runOnce:
         deploy:
           steps:
-       
           - task: AzureFunctionApp@1
             displayName: 'Azure Function App Deploy: IbbuTestFunctionApp'
             inputs:
