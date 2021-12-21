@@ -35,4 +35,4 @@ stages:
              slotName: staging
              package: '$(System.DefaultWorkingDirectory)'
              appSettings: '-WEBSITE_CONTENTSHARE "ibbutestfunctionappb0aa"\n-FUNCTIONS_WORKER_RUNTIME "dotnet"\n-FUNCTIONS_WORKER_RUNTIME "dotnet"'
-            enabled: false
+            enabled: True
