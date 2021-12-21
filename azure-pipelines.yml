@@ -28,3 +28,15 @@ stages:
             inputs:
              targetType: 'inline'
              script: Write-Host "Hello World"
+          - task: AzureFunctionApp@1
+            displayName: 'Azure Function App Deploy: IbbuTestFunctionApp'
+            inputs:
+             azureSubscription: $(AzureId)
+             appType: functionApp
+             appName: IbbuTestFunctionApp
+             deployToSlotOrASE: true
+             resourceGroupName: 'Ibbu_RG'
+             slotName: staging
+             package: '$(System.DefaultWorkingDirectory)'
+             appSettings: '-WEBSITE_CONTENTSHARE "ibbutestfunctionappb0aa"\n-FUNCTIONS_WORKER_RUNTIME "dotnet"\n-FUNCTIONS_WORKER_RUNTIME "dotnet"'
+            enabled: false
