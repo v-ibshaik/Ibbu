@@ -28,8 +28,6 @@ stages:
             inputs:
              targetType: 'inline'
              script: Write-Host "Hello World"
-- stage: stage2
-  jobs:
   - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
@@ -41,8 +39,6 @@ stages:
             inputs:
              targetType: 'inline'
              script: Write-Host "Hello World"
-- stage: stage3
-  jobs:
   - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
