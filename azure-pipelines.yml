@@ -19,6 +19,7 @@ stages:
   jobs:
   - deployment: Deploy1
     displayName: Publish Artifacts
+    environment: ddddd
     strategy:
       runOnce:
         deploy:
@@ -34,6 +35,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Publish Artifacts
+    environment: ddddd
     strategy:
       runOnce:
         deploy:
@@ -49,6 +51,7 @@ stages:
   jobs:
   - deployment: Deploy3
     displayName: Publish Artifacts
+    environment: ddddd
     strategy:
       runOnce:
         deploy:
