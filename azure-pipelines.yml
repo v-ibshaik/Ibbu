@@ -28,7 +28,10 @@ stages:
           - task: PowerShell@2
             inputs:
              targetType: 'inline'
-             script: Write-Host "Hello World"
+             script: 
+              Write-Host "Hello World"
+              Start-Sleep -Seconds 20
+              Write-Host "Hello World"
   - job: A2
   - deployment: Deploy1
     displayName: Publish Artifacts
@@ -40,7 +43,10 @@ stages:
           - task: PowerShell@2
             inputs:
              targetType: 'inline'
-             script: Write-Host "Hello World"
+             script: 
+              Write-Host "Hello World"
+              Start-Sleep -Seconds 20
+              Write-Host "Hello World"
   - job: A3
   - deployment: Deploy2
     displayName: Publish Artifacts
@@ -52,4 +58,7 @@ stages:
           - task: PowerShell@2
             inputs:
              targetType: 'inline'
-             script: Write-Host "Hello World"
+             script: 
+              Write-Host "Hello World"
+              Start-Sleep -Seconds 20
+              Write-Host "Hello World"
