@@ -17,8 +17,7 @@ variables:
 stages:
 - stage: stage1
   jobs:
-  - job: A1
-  - deployment: Deploy4
+  - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
@@ -29,11 +28,12 @@ stages:
             inputs:
              targetType: 'inline'
              script: 
-              Write-Host "Hello World"
-              Start-Sleep -Seconds 20
-              Write-Host "Hello World"
-  - job: A2
-  - deployment: Deploy1
+                Write-Host "Hello World"
+                Start-Sleep -Seconds 20
+                Write-Host "Hello World"
+- stage: stage2
+  jobs:
+  - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
@@ -44,11 +44,12 @@ stages:
             inputs:
              targetType: 'inline'
              script: 
-              Write-Host "Hello World"
-              Start-Sleep -Seconds 20
-              Write-Host "Hello World"
-  - job: A3
-  - deployment: Deploy2
+                Write-Host "Hello World"
+                Start-Sleep -Seconds 20
+                Write-Host "Hello World"
+- stage: stage3
+  jobs:
+  - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
@@ -59,6 +60,6 @@ stages:
             inputs:
              targetType: 'inline'
              script: 
-              Write-Host "Hello World"
-              Start-Sleep -Seconds 20
-              Write-Host "Hello World"
+                Write-Host "Hello World"
+                Start-Sleep -Seconds 20
+                Write-Host "Hello World"
