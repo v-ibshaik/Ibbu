@@ -18,7 +18,7 @@ stages:
 - stage: stage1
   jobs:
   - job: A1
-  - deployment: Deploy
+  - deployment: Deploy4
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
