@@ -30,7 +30,7 @@ stages:
              targetType: 'inline'
              script: Write-Host "Hello World"
   - job: A2
-  - deployment: Deploy
+  - deployment: Deploy1
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
@@ -42,7 +42,7 @@ stages:
              targetType: 'inline'
              script: Write-Host "Hello World"
   - job: A3
-  - deployment: Deploy
+  - deployment: Deploy2
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
