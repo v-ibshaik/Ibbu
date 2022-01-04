@@ -47,7 +47,7 @@ stages:
 
       environment:
         name: SERVER-DEV
-        resourceType: VirtualMachine
+
       strategy:
         runOnce:
           deploy:
