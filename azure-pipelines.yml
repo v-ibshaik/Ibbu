@@ -20,8 +20,7 @@ stages:
     jobs:
     - job: 'Build'
       displayName: 'Build'
-      pool:
-        name: REDACTED
+ 
       variables:
         Solution: '**/*.sln'
         BuildPlatform: 'Any CPU'
@@ -45,8 +44,7 @@ stages:
       timeoutInMinutes: 10
       workspace:
         clean: all
-      pool:
-        name: REDACTED
+
       environment:
         name: SERVER-DEV
         resourceType: VirtualMachine
