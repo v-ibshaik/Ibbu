@@ -15,48 +15,54 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-  - stage: 'Build'
-    displayName: 'Build'
-    jobs:
-    - job: 'Build'
-      displayName: 'Build'
- 
-      variables:
-        Solution: '**/*.sln'
-        BuildPlatform: 'Any CPU'
-        BuildConfiguration: 'Release'
-      steps:
-        - task: PowerShell@2
-          inputs:
-                 targetType: 'inline'
-                 script: 
-                  Write-Host "Hello World"
-                  Start-Sleep -Seconds 20
-                  Write-Host "Hello World"
-                  
-  - stage: 'Deploy'
-    displayName: 'Deploy'
-    dependsOn: 'Build'
-    jobs:
-    - deployment: 'Deploy'
-      displayName: 'Deploy'
-      continueOnError: false
-      timeoutInMinutes: 10
-      workspace:
-        clean: all
-
-      environment:
-        name: SERVER-DEV
-
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-              - task: PowerShell@2
-                inputs:
-                 targetType: 'inline'
-                 script: 
-                  Write-Host "Hello World"
-                  Start-Sleep -Seconds 20
-                  Write-Host "Hello World"
-            
+- stage: Deploy1
+  jobs:
+  - deployment: Deploy1
+    displayName: Deploy1
+    timeoutInMinutes: 10
+    environment: ddddd1
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            inputs:
+             targetType: 'inline'
+             script: 
+                Write-Host "Hello World"
+                Start-Sleep -Seconds 20
+                Write-Host "Hello World"
+- stage: Deploy
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    timeoutInMinutes: 10
+    environment: ddddd1
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            inputs:
+             targetType: 'inline'
+             script: 
+                Write-Host "Hello World"
+                Start-Sleep -Seconds 20
+                Write-Host "Hello World"
+- stage: Deploy3
+  jobs:
+  - deployment: Deploy3
+    displayName: Deploy3
+    timeoutInMinutes: 10
+    environment: ddddd1
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            inputs:
+             targetType: 'inline'
+             script: 
+                Write-Host "Hello World"
+                Start-Sleep -Seconds 20
+                Write-Host "Hello World"
