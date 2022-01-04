@@ -18,9 +18,9 @@ stages:
 - stage: Deploy1
   jobs:
   - deployment: Deploy1
-    displayName: Publish Artifacts
+    displayName: Deploy1
     timeoutInMinutes: 1
-    environment: ddddd
+    environment: ddddd1
     strategy:
       runOnce:
         deploy:
@@ -37,7 +37,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy
     timeoutInMinutes: 1
-    environment: ddddd
+    environment: ddddd2
     strategy:
       runOnce:
         deploy:
@@ -52,9 +52,9 @@ stages:
 - stage: Deploy3
   jobs:
   - deployment: Deploy3
-    displayName: Publish Artifacts
+    displayName: Deploy3
     timeoutInMinutes: 1
-    environment: ddddd
+    environment: ddddd3
     strategy:
       runOnce:
         deploy:
