@@ -28,3 +28,28 @@ stages:
             inputs:
              targetType: 'inline'
              script: Write-Host "Hello World"
+- stage: stage2
+  jobs:
+  - deployment: Deploy
+    displayName: Publish Artifacts
+    environment: ddddd
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            inputs:
+             targetType: 'inline'
+             script: Write-Host "Hello World"
+- stage: stage3
+  jobs:
+  - deployment: Deploy
+    displayName: Publish Artifacts
+    environment: ddddd
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2
+            inputs:
+             targetType: 'inline'
