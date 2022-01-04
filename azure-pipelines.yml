@@ -17,6 +17,7 @@ variables:
 stages:
 - stage: stage1
   jobs:
+  - job: A1
   - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
@@ -28,6 +29,7 @@ stages:
             inputs:
              targetType: 'inline'
              script: Write-Host "Hello World"
+  - job: A2
   - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
@@ -39,6 +41,7 @@ stages:
             inputs:
              targetType: 'inline'
              script: Write-Host "Hello World"
+  - job: A3
   - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
@@ -49,3 +52,4 @@ stages:
           - task: PowerShell@2
             inputs:
              targetType: 'inline'
+             script: Write-Host "Hello World"
