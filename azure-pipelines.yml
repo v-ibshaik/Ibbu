@@ -15,54 +15,62 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: Deploy1
-  jobs:
-  - deployment: Deploy1
-    displayName: Deploy1
-    timeoutInMinutes: 1
-    environment: ddddd1
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: PowerShell@2
-            inputs:
-             targetType: 'inline'
-             script: 
-                Write-Host "Hello World"
-                Start-Sleep -Seconds 20
-                Write-Host "Hello World"
-- stage: Deploy
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    timeoutInMinutes: 1
-    environment: ddddd2
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: PowerShell@2
-            inputs:
-             targetType: 'inline'
-             script: 
-                Write-Host "Hello World"
-                Start-Sleep -Seconds 20
-                Write-Host "Hello World"
-- stage: Deploy3
-  jobs:
-  - deployment: Deploy3
-    displayName: Deploy3
-    timeoutInMinutes: 1
-    environment: ddddd3
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: PowerShell@2
-            inputs:
-             targetType: 'inline'
-             script: 
-                Write-Host "Hello World"
-                Start-Sleep -Seconds 20
-                Write-Host "Hello World"
+  - stage: 'Build'
+    displayName: 'Build'
+    jobs:
+    - job: 'Build'
+      displayName: 'Build'
+      pool:
+        name: REDACTED
+      variables:
+        Solution: '**/*.sln'
+        BuildPlatform: 'Any CPU'
+        BuildConfiguration: 'Release'
+      steps:
+      - task: NuGetToolInstaller@1
+        displayName: 'Install NuGet Tools'
+      - task: NuGetCommand@2
+        displayName: 'Restore NuGet Packages'
+        inputs:
+          restoreSolution: '$(Solution)'
+      - task: VSBuild@1
+        displayName: 'MSBuild'
+        inputs:
+          solution: '$(Solution)'
+          msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(Build.ArtifactStagingDirectory)\$(ArtifactPackageName)"'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Build Artifacts'
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: drop
+          publishLocation: 'Container'
+          
+  - stage: 'Deploy'
+    displayName: 'Deploy'
+    dependsOn: 'Build'
+    jobs:
+    - deployment: 'Deploy'
+      displayName: 'Deploy'
+      continueOnError: false
+      timeoutInMinutes: 10
+      workspace:
+        clean: all
+      pool:
+        name: REDACTED
+      environment:
+        name: SERVER-DEV
+        resourceType: VirtualMachine
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+              - task: PowerShell@2
+                inputs:
+                 targetType: 'inline'
+                 script: 
+                  Write-Host "Hello World"
+                  Start-Sleep -Seconds 20
+                  Write-Host "Hello World"
+            
