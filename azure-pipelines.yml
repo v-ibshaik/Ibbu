@@ -17,7 +17,7 @@ variables:
 stages:
 - stage: stage1
   jobs:
-  - deployment: Publish_Artifacts
+  - deployment: Deploy
     displayName: Publish Artifacts
     environment: ddddd
     strategy:
