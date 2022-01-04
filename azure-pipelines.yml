@@ -15,11 +15,10 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: stage1
+- stage: Deploy1
   jobs:
-  - deployment: Deploy
+  - deployment: Deploy1
     displayName: Publish Artifacts
-    environment: ddddd
     strategy:
       runOnce:
         deploy:
@@ -31,11 +30,10 @@ stages:
                 Write-Host "Hello World"
                 Start-Sleep -Seconds 20
                 Write-Host "Hello World"
-- stage: stage2
+- stage: Deploy
   jobs:
   - deployment: Deploy
     displayName: Publish Artifacts
-    environment: ddddd
     strategy:
       runOnce:
         deploy:
@@ -47,11 +45,10 @@ stages:
                 Write-Host "Hello World"
                 Start-Sleep -Seconds 20
                 Write-Host "Hello World"
-- stage: stage3
+- stage: Deploy3
   jobs:
-  - deployment: Deploy
+  - deployment: Deploy3
     displayName: Publish Artifacts
-    environment: ddddd
     strategy:
       runOnce:
         deploy:
