@@ -6,8 +6,6 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
@@ -16,6 +14,7 @@ variables:
 
 stages:
 - stage: Deploy1
+pool: Default
   jobs:
   - deployment: Deploy1
     displayName: Deploy1
