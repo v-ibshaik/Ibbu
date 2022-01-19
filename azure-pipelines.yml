@@ -64,4 +64,5 @@ stages:
              azureSubscription: 'DTLQA (c94bda7a-0577-4374-9c53-0e46a9fb0f70)'
              WebAppName: IbbuTestFunctionApp
              packageForLinux: '$(System.DefaultWorkingDirectory)'
-             AppSettings: -WEBSITE_CONTENTSHARE "$(Var1)"    -FUNCTIONS_WORKER_RUNTIME "$(Var2)"
+             AppSettings: -WEBSITE_CONTENTSHARE "$(Var1)" 
+                          -FUNCTIONS_WORKER_RUNTIME "$(Var2)"
