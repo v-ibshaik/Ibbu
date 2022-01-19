@@ -36,7 +36,7 @@ stages:
     
           - task: AzureFileCopy@4
             inputs:
-              SourcePath: FunctionApp1.csproj
+              SourcePath: 'C:\Users\v-ibshaik\Desktop\Microsoft\7.txt'
               azureSubscription: 'DTLQA (c94bda7a-0577-4374-9c53-0e46a9fb0f70)'
               Destination: AzureBlob
               storage: ibbu1storage
