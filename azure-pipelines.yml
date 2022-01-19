@@ -15,40 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: Deploy1
-  jobs:
-  - deployment: Deploy1
-    displayName: Deploy1
-    timeoutInMinutes: 10
-    environment: ddddd1
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: PowerShell@2
-            inputs:
-             targetType: 'inline'
-             script: 
-                Write-Host "Hello World"
-                Start-Sleep -Seconds 20
-                Write-Host "Hello World"
-- stage: Deploy
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    timeoutInMinutes: 10
-    environment: ddddd1
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: PowerShell@2
-            inputs:
-             targetType: 'inline'
-             script: 
-                Write-Host "Hello World"
-                Start-Sleep -Seconds 20
-                Write-Host "Hello World"
+
 - stage: Deploy3
   jobs:
   - deployment: Deploy3
@@ -64,5 +31,5 @@ stages:
              azureSubscription: 'DTLQA (c94bda7a-0577-4374-9c53-0e46a9fb0f70)'
              WebAppName: IbbuTestFunctionApp
              packageForLinux: '$(System.DefaultWorkingDirectory)'
-             AppSettings: -WEBSITE_CONTENTSHARE "$(Var1)"\n
+             AppSettings: -WEBSITE_CONTENTSHARE "$(Var1)"
                           -FUNCTIONS_WORKER_RUNTIME "$(Var2)"
